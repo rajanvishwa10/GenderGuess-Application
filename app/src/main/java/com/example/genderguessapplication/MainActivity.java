@@ -42,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String name = editText.getText().toString();
+                if(name.isEmpty()){
+                    editText.setError("Enter Name");
+                    editText.requestFocus();
+                }
                 String url = "https://gender-api.com/get?key=RCTNUMwRNLwTSBtmUm&name=";
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url+name, null,
                         new Response.Listener<JSONObject>() {
